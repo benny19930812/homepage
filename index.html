@@ -58,16 +58,13 @@ header.hero {
   align-items: start;
   border-bottom: 1px solid var(--line);
 }
-.mono-badge {
-  width: 104px; height: 104px;
+.avatar {
+  width: 120px; height: 120px;
   border-radius: 50%;
-  background: var(--brand);
-  color: var(--bg);
-  display: grid; place-items: center;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 2rem;
-  letter-spacing: 0.04em;
+  object-fit: cover;
+  background: var(--brand-soft);
+  border: 3px solid var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
 }
 .hero h1 {
   font-family: var(--font-display);
@@ -244,7 +241,7 @@ footer {
 
 @media (max-width: 640px) {
   header.hero { grid-template-columns: 1fr; padding-block: 36px 32px; gap: 20px; }
-  .mono-badge { width: 76px; height: 76px; font-size: 1.4rem; }
+  .avatar { width: 88px; height: 88px; }
   .job { grid-template-columns: 1fr; }
   .skills, .two { grid-template-columns: 1fr; }
   .proj { padding: 20px 18px 16px; }
@@ -258,7 +255,7 @@ footer {
 
 <div class="wrap">
   <header class="hero">
-    <div class="mono-badge" aria-hidden="true">斌魁</div>
+    <img class="avatar" src="avatar.jpg" alt="黃斌魁的大頭照" width="120" height="120">
     <div>
       <h1>黃斌魁</h1>
       <p class="role">後端工程師 <span>@ 羅卡斯科技股份有限公司 · Taipei, Taiwan</span></p>
