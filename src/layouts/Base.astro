@@ -1,0 +1,38 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = '黃斌魁的個人網站' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const path = Astro.url.pathname;
+const isPosts = path.startsWith(`${base}posts`);
+---
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav" aria-label="主選單">
+      <a class="brand" href={base}>黃斌魁</a>
+      <ul>
+        <li><a href={base} aria-current={!isPosts ? 'page' : undefined}>履歷</a></li>
+        <li><a href={`${base}posts/`} aria-current={isPosts ? 'page' : undefined}>文章</a></li>
+      </ul>
+    </nav>
+    <slot />
+    <footer>黃斌魁 · 後端工程師 · Taipei, Taiwan</footer>
+  </div>
+</body>
+</html>
